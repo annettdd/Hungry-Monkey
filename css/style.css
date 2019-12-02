@@ -1,0 +1,129 @@
+body {
+    font-family: 'Happy Monkey', cursive;
+    font-size: 16px;
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    background-color: #696969;
+    color: #303030;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+}
+
+canvas {
+    border: 1px solid rgb(255, 255, 255);
+    position: absolute;
+    background-color: transparent;
+}
+
+h1 {
+    font-family: 'Happy Monkey', cursive;
+    text-align: center;
+    color: rgb(240, 236, 8);
+    font-size: 4.5em;
+    text-shadow: 1px 1px black;
+    text-transform: uppercase;
+}
+
+h2 {
+    color: rgb(240, 236, 8);
+    font-family: 'Happy Monkey', cursive;
+    font-size: 3em;
+}
+
+p {
+    font-family: 'Happy Monkey', cursive;
+    text-align: center;
+    color: #fff;
+    font-size: 1.5em;
+}
+
+#intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 6% 5%;
+    background: rgba(180, 180, 155, 0.637);
+    width: 55%;
+}
+
+.intro-elements {
+    color: rgb(240, 236, 8);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#intro-coconuts {
+    color: rgb(119, 83, 7);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#monkey {
+    position: fixed;
+}
+
+#scoreboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 30vw;
+    padding: 1% 0;
+    background: rgba(180, 180, 155, 0.637);
+    color: #fff;
+}
+
+
+/*Fruits*/
+
+.container-banana {
+    margin: 0;
+    display: flex;
+}
+
+.banana {
+    animation: fall 3s infinite linear;
+    position: fixed;
+    height: 70px;
+    width: 70px;
+}
+
+
+/*keyframes banana*/
+
+@keyframes fall {
+    0% {
+        top: -50px;
+    }
+    99% {
+        top: 100%;
+    }
+}
+
+.container-coconut {
+    margin: 0;
+    display: flex;
+}
+
+.coconut {
+    animation: cocofall 3s infinite linear;
+    position: fixed;
+    height: 60px;
+    width: 60px;
+}
+
+
+/*keyframes coconut*/
+
+@keyframes cocofall {
+    0% {
+        top: -50px;
+    }
+    99% {
+        top: 100%;
+    }
+}
