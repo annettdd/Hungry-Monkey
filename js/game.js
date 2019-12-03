@@ -7,9 +7,12 @@ class Game {
         this.highScore = [];
         this.controls(); // initialize controls
         this.monkey = null;
-        this.bananas = [];
+        this.bananas = [new Banana(), new Banana(), new Banana(), new Banana(), new Banana(), new Banana()];
+        this.coconuts = [new Coconut(), new Coconut()];
+        this.scoreBoard = new Scoreboard(0, 0);
 
     }
+
     controls() {
         let fixThis = this;
         document.addEventListener("keydown", function(e) {
@@ -19,14 +22,22 @@ class Game {
                     debugger
                     intro.style.display = "none";
                     setInterval(() => {
-                            // game over won?
+                        // game over won?
 
-                            // check for collision
-                            // collission(monkey, bananas[i]);
-                            // collission(monkey, coconuts[i]);
-                            fixThis.render();
-                        }, 100)
+                        // check for collision
+                        // collission(monkey, bananas[i]);
+                        // collission(monkey, coconuts[i]);
+                        fixThis.render();
+                    }, 100)
+
+                    setInterval(() => {
+                            fixThis.addBanana(new Banana());
+                        }, 2000)
                         // intro.startGame();
+                    setInterval(() => {
+                        fixThis.addCoconut(new Coconut());
+                    }, 2500)
+
                     break;
             }
         });
@@ -39,12 +50,26 @@ class Game {
     addBanana(banana) {
         this.bananas.push(banana);
     }
+    addCoconut(coconut) {
+        this.coconuts.push(coconut);
+    }
 
-
+    renderBananas() {
+        for (let i = 0; i < this.bananas.length; i++) {
+            this.bananas[i].render();
+        }
+    }
+    renderCoconuts() {
+        for (let i = 0; i < this.coconuts.length; i++) {
+            this.coconuts[i].render();
+        }
+    }
     render() {
         document.body.innerHTML = "";
+        this.scoreBoard.render();
         this.monkey.render();
-
+        this.renderBananas();
+        this.renderCoconuts();
     }
 };
 

@@ -3,9 +3,10 @@ class Monkey {
         this.x = x;
         this.y = y;
         this.initControls();
+
     }
     width = 8; //monkey size(width)
-    speed = 2; // monkey speed
+    speed = 2; // monkey speed (px)
 
     //Monkey controls left / right (with speed, screen edges and monkey width)
     initControls() {
@@ -13,7 +14,6 @@ class Monkey {
             switch (e.key) {
                 case ("ArrowRight"):
                     if (!((this.x + this.speed) > (100 - this.width))) this.x += this.speed;
-
                     break;
                 case ("ArrowLeft"):
                     if (!((this.x + this.speed) < (0 + this.width - 5))) this.x -= this.speed;
