@@ -7,7 +7,7 @@ class Game {
         this.highScore = [];
         this.controls(); // initialize controls
         this.monkey = null;
-        this.bananas = [new Banana(), new Banana(), new Banana(), new Banana(), new Banana(), new Banana()];
+        this.bananas = [new Banana(), new Banana(), new Banana(), new Banana(), new Banana()];
         this.coconuts = [new Coconut(), new Coconut()];
         this.scoreBoard = new Scoreboard(0, 0);
 
@@ -19,16 +19,19 @@ class Game {
             switch (e.keyCode) {
                 case 13: //Enter
                     // intro.reset();  
-                    debugger
                     intro.style.display = "none";
+
                     setInterval(() => {
                         // game over won?
 
-                        // check for collision
-                        // collission(monkey, bananas[i]);
-                        // collission(monkey, coconuts[i]);
+                        // check for collission
+
                         fixThis.render();
-                    }, 100)
+                        if (fixThis.checkCollissionBanana()) {
+                            fixThis.score++
+                                fixThis.updateScore()
+                        }
+                    }, 1)
 
                     setInterval(() => {
                             fixThis.addBanana(new Banana());
@@ -36,7 +39,7 @@ class Game {
                         // intro.startGame();
                     setInterval(() => {
                         fixThis.addCoconut(new Coconut());
-                    }, 2500)
+                    }, 3000)
 
                     break;
             }
@@ -65,32 +68,56 @@ class Game {
         }
     }
     render() {
+        this.checkCollissionCoconut();
+        this.checkCollissionBanana();
         document.body.innerHTML = "";
         this.scoreBoard.render();
         this.monkey.render();
         this.renderBananas();
         this.renderCoconuts();
+
+    }
+
+    updateScore() {
+        this.score++
+    }
+    checkCollissionBanana() {
+        var bananas = this.bananas
+        var monkey = this.monkey
+        for (let i = 0; i < bananas.length; i++) {
+            if (collission(monkey, bananas[i])) {
+                bananas = bananas.splice(i, 1);
+
+                return true;
+            }
+        }
+        return false
+    }
+    checkCollissionCoconut() {
+        var coconuts = this.coconuts
+        var monkey = this.monkey
+        for (let i = 0; i < coconuts.length; i++) {
+            if (collission(monkey, coconuts[i])) {
+                coconuts = coconuts.splice(i, 1);
+                console.log('Game Over!');
+                return true;
+            }
+        }
+        return false
+    }
+    message() {
+        message.innerHTML = "You were killed" + "</br>" + "by a shark!!!";
+        gameMessage.style.display = "flex";
+        surfer.reset()
     }
 };
 
-// function collission($element1, $element2) {
-//     var a = {
-//         y: 100 - $element1.offsetTop - $element1.height,
-//         x: $element1.offsetLeft,
-//         height: $element1.height,
-//         width: $element1.width
-//     }
-//     var b = {
-//         y: 100 - $element2.offsetTop - $element2.height,
-//         x: $element2.offsetLeft,
-//         height: $element2.height,
-//         width: $element2.width
-//     }
 
-//     return !(
-//         ((a.y + a.height) < (b.y)) ||
-//         (a.y > (b.y + b.height)) ||
-//         ((a.x + a.width) < b.x) ||
-//         (a.x > (b.x + b.width))
-//     );
-// }
+function collission(element1, element2) {
+    return !(
+        ((element1.y + element1.height) < (element2.y)) ||
+        (element1.y > (element2.y + element2.height)) ||
+        ((element1.x + element1.width) < element2.x) ||
+        (element1.x > (element2.x + element2.width))
+    );
+}
