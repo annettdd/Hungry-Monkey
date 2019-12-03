@@ -26,12 +26,14 @@ h1 {
     font-size: 4.5em;
     text-shadow: 1px 1px black;
     text-transform: uppercase;
+    margin-bottom: 15px;
 }
 
 h2 {
     color: rgb(240, 236, 8);
     font-family: 'Happy Monkey', cursive;
     font-size: 3em;
+    margin: 10px 0 20px 0;
 }
 
 p {
@@ -46,7 +48,7 @@ p {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin: 6% 5%;
+    margin: 4% 5%;
     background: rgba(180, 180, 155, 0.637);
     width: 55%;
 }
@@ -55,6 +57,10 @@ p {
     color: rgb(240, 236, 8);
     text-transform: uppercase;
     font-weight: bold;
+}
+
+#paragraph {
+    margin-bottom: 40px;
 }
 
 #intro-coconuts {

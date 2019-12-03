@@ -5,7 +5,6 @@ class Scoreboard {
         this.highScore = highScore;
     }
     render() {
-
         let $scoreBoard = document.createElement("div");
         $scoreBoard.innerHTML = `
             <div id="points">

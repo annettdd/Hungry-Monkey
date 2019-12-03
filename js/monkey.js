@@ -14,18 +14,16 @@ class Monkey {
         document.addEventListener("keydown", (e) => {
             switch (e.key) {
                 case ("ArrowRight"):
-                    // to do: check bounds based on pixels
-                    // (window.innerWidth - this.width));
-                    this.x += this.speed;
+                    //right side screen edge - monkey can not go behind a screen
+                    if (!(this.x + this.speed > (window.innerWidth - this.width))) this.x += this.speed;
                     break;
                 case ("ArrowLeft"):
-                    // to do: check bounds based on pixels
+                    //left screen edge - monkey can not go behind a screen
                     if (!(this.x - this.speed < 0)) this.x -= this.speed;
                     break;
             }
         });
     }
-
 
     //create monkey (monkey_boy)
     render() {
