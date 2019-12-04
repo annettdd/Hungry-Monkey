@@ -27,6 +27,7 @@ class Monkey {
 
     //create monkey (monkey_boy)
     render() {
+
         let $monkey = document.createElement("img");
         $monkey.setAttribute("src", "./images/monkey-boy.png");
         $monkey.setAttribute("id", "monkey");

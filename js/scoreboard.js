@@ -6,9 +6,9 @@ class Scoreboard {
     render() {
         let $scoreBoard = document.createElement("div");
         $scoreBoard.innerHTML = `
-            <div>
-                <span>Points: </span><span id="score">${this.score}</span>
-            </div>
+        <div>
+            <span>POINTS: </span><span id="score">${this.score}</span>
+        </div>
         `
         $scoreBoard.setAttribute("id", "scoreboard");
         document.body.appendChild($scoreBoard);

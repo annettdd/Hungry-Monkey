@@ -3,42 +3,42 @@ class Game {
         this.gamewidth = width;
         this.gameheight = height;
         this.interval = 0;
-        this.highScore = [];
         this.controls(); // initialize controls
         this.monkey = null;
         this.bananas = [new Banana(), new Banana(), new Banana(), new Banana(), new Banana()];
         this.coconuts = [new Coconut(), new Coconut()];
         this.scoreBoard = new Scoreboard(0, 0);
         this.score = this.scoreBoard.score;
-
-
+        this.gameOver = null;
     }
-
     controls() {
+        let fixThis = this;
         document.addEventListener("keydown", function(e) {
             switch (e.keyCode) {
                 case 13: //Enter
-                    // intro.style.display = "none";
-                    gameBoard.startGame();
+                    if (!fixThis.gameOver) gameBoard.startGame();
+                    else if (fixThis.gameOver) window.location.reload(true);
                     break;
             }
         });
     }
+
     startGame() {
         var fixThis = this;
         setInterval(() => {
             fixThis.render();
             fixThis.checkCollissionBanana();
             fixThis.checkCollissionCoconut();
+        }, 10)
 
-        }, 100)
         setInterval(() => {
-            fixThis.addBanana(new Banana());
+            if (!this.gameOver) fixThis.addBanana(new Banana());
         }, 2000)
         setInterval(() => {
-            fixThis.addCoconut(new Coconut());
+            if (!this.gameOver) fixThis.addCoconut(new Coconut());
         }, 3000)
     }
+
     addMonkey(monkey) {
         this.monkey = monkey;
     }
@@ -59,13 +59,12 @@ class Game {
         }
     }
     render() {
-            this.checkCollissionCoconut();
-            this.checkCollissionBanana();
             document.body.innerHTML = "";
-            this.scoreBoard.render();
-            this.monkey.render();
-            this.renderBananas();
-            this.renderCoconuts();
+            if (this.scoreBoard) this.scoreBoard.render();
+            if (this.monkey) this.monkey.render();
+            if (this.bananas) this.renderBananas();
+            if (this.coconuts) this.renderCoconuts();
+            if (this.gameOver) this.gameOver.render();
         }
         //Collission banana
     checkCollissionBanana() {
@@ -87,37 +86,21 @@ class Game {
         for (let i = 0; i < coconuts.length; i++) {
             if (collission(monkey, coconuts[i])) {
                 coconuts = coconuts.splice(i, 1);
-                // sound;  
-                this.stop();
-                this.showGameover();
-
-                window.location.reload(true);
+                this.stopGame();
+                this.render();
+                debugger
+                this.gameOver = new GameOver(this.score);
                 return true;
             }
         }
         return false
     }
-    stop() {
+    stopGame() {
+        this.scoreBoard = null;
         this.monkey = null;
-        this.bananas = 0;
-        this.coconuts = 0;
-        intro.style.display = "flex"
+        this.bananas = [];
+        this.coconuts = [];
     }
-
-    showGameover() {
-        let $showGameover = document.createElement("div");
-        $showGameover.innerHTML = `
-            <div>
-                <span>GAME OVER!</span><br> 
-                <span>You collected</span><br> 
-                <span>${this.scoreBoard.score}</span><br>
-                <span>bananas.</span>
-            </div>
-        `
-        $showGameover.setAttribute("id", "gameover");
-        document.body.appendChild($showGameover);
-    }
-
 };
 
 //A global helper function

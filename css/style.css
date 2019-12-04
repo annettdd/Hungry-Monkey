@@ -76,8 +76,9 @@
     #scoreboard {
         position: fixed;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-around;
+        text-align: center;
         font-size: 1.6em;
         width: 20vw;
         padding: 1% 0;
