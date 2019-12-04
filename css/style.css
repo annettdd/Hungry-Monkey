@@ -48,9 +48,10 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        margin: 4% 5%;
+        margin: 3% 5%;
         background: rgba(180, 180, 155, 0.637);
         width: 55%;
+        border-radius: 10px;
     }
     
     .intro-elements {
@@ -105,4 +106,37 @@
     .coconut {
         position: fixed;
     }
-    /*Alert window*/
+    /*Game Over message*/
+    
+    #gameover {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
+        font-size: 2.6em;
+        line-height: 85px;
+        width: 70vw;
+        padding: 6% 0;
+        background: rgba(180, 180, 155, 0.637);
+        color: #fff;
+        border-radius: 10px;
+        margin: 8% 0 0 0;
+    }
+    
+    #redLetters {
+        color: rgb(151, 0, 0);
+        font-size: 3em;
+    }
+    
+    #copyright {
+        font-size: 0.8em;
+        color: #fff;
+        margin: 0 0 10px 0;
+    }
+    
+    #copyright a {
+        text-decoration: none;
+        color: #fff;
+        margin: 0 0 10px 0;
+    }

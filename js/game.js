@@ -16,8 +16,9 @@ class Game {
         document.addEventListener("keydown", function(e) {
             switch (e.keyCode) {
                 case 13: //Enter
-                    if (!fixThis.gameOver) gameBoard.startGame();
-                    else if (fixThis.gameOver) window.location.reload(true);
+                    if (!fixThis.gameOver) {
+                        gameBoard.startGame()
+                    } else if (fixThis.gameOver) window.location.reload(true);
                     break;
             }
         });
@@ -25,6 +26,7 @@ class Game {
 
     startGame() {
         var fixThis = this;
+        this.soundTrack();
         setInterval(() => {
             fixThis.render();
             fixThis.checkCollissionBanana();
@@ -74,6 +76,7 @@ class Game {
                 if (collission(monkey, bananas[i])) {
                     this.scoreBoard.score++
                         bananas = bananas.splice(i, 1);
+                    this.soundBanana();
                     return true;
                 }
             }
@@ -86,10 +89,10 @@ class Game {
         for (let i = 0; i < coconuts.length; i++) {
             if (collission(monkey, coconuts[i])) {
                 coconuts = coconuts.splice(i, 1);
-                this.stopGame();
+                this.soundCoconut();
+                this.gameOver = new GameOver(this.scoreBoard.score);
                 this.render();
-                debugger
-                this.gameOver = new GameOver(this.score);
+                this.stopGame();
                 return true;
             }
         }
@@ -100,6 +103,18 @@ class Game {
         this.monkey = null;
         this.bananas = [];
         this.coconuts = [];
+    }
+    soundBanana() {
+        var sound = new Audio("../sounds/beerLevel.mp3");
+        sound.play();
+    }
+    soundCoconut() {
+        var sound = new Audio("../sounds/error.mp3");
+        sound.play();
+    }
+    soundTrack() {
+        var sound = new Audio("../sounds/lionKing.mp3");
+        sound.play();
     }
 };
 
