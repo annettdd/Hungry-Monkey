@@ -1,7 +1,7 @@
 class Monkey {
     constructor() {
-        this.x = 0;
-        this.y = 0;
+        this.x = (window.innerWidth / 2) - this.width / 2; //middle of the screen
+        this.y = 5; //sets monkey a bit higher
         this.initControls();
     }
 
@@ -35,5 +35,9 @@ class Monkey {
         $monkey.style.width = `${this.width}px`;
         $monkey.style.height = `${this.height}px`;
         document.body.appendChild($monkey);
+    }
+    reset() {
+        this.x = (window.innerWidth / 2) - this.width / 2;
+        this.y = 5;
     }
 }

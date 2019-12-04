@@ -1,106 +1,107 @@
-body {
-    font-family: 'Happy Monkey', cursive;
-    font-size: 16px;
-    background-image: url(../images/background.jpg);
-    background-size: cover;
-    background-color: #696969;
-    color: #303030;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 0;
-    height: 100vh;
-}
-
-canvas {
-    border: 1px solid rgb(255, 255, 255);
-    position: absolute;
-    background-color: transparent;
-}
-
-h1 {
-    font-family: 'Happy Monkey', cursive;
-    text-align: center;
-    color: rgb(240, 236, 8);
-    font-size: 4.5em;
-    text-shadow: 1px 1px black;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-}
-
-h2 {
-    color: rgb(240, 236, 8);
-    font-family: 'Happy Monkey', cursive;
-    font-size: 3em;
-    margin: 10px 0 20px 0;
-}
-
-p {
-    font-family: 'Happy Monkey', cursive;
-    text-align: center;
-    color: #fff;
-    font-size: 1.5em;
-}
-
-#intro {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 4% 5%;
-    background: rgba(180, 180, 155, 0.637);
-    width: 55%;
-}
-
-.intro-elements {
-    color: rgb(240, 236, 8);
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-#paragraph {
-    margin-bottom: 40px;
-}
-
-#intro-coconuts {
-    color: rgb(119, 83, 7);
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-#monkey {
-    position: fixed;
-}
-
-#scoreboard {
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 30vw;
-    padding: 1% 0;
-    background: rgba(180, 180, 155, 0.637);
-    color: #fff;
-}
-
-
-/*Fruits*/
-
-.container-banana {
-    margin: 0;
-    display: flex;
-}
-
-.banana {
-    position: fixed;
-}
-
-.container-coconut {
-    margin: 0;
-    display: flex;
-}
-
-.coconut {
-    position: fixed;
-}
+    body {
+        font-family: 'Happy Monkey', cursive;
+        font-size: 16px;
+        background-image: url(../images/background.jpg);
+        background-size: cover;
+        background-color: #696969;
+        color: #303030;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0;
+        height: 100vh;
+    }
+    
+    canvas {
+        border: 1px solid rgb(255, 255, 255);
+        position: absolute;
+        background-color: transparent;
+    }
+    
+    h1 {
+        font-family: 'Happy Monkey', cursive;
+        text-align: center;
+        color: rgb(240, 236, 8);
+        font-size: 4.5em;
+        text-shadow: 1px 1px black;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+    
+    h2 {
+        color: rgb(240, 236, 8);
+        font-family: 'Happy Monkey', cursive;
+        font-size: 3em;
+        margin: 10px 0 20px 0;
+    }
+    
+    p {
+        font-family: 'Happy Monkey', cursive;
+        text-align: center;
+        color: #fff;
+        font-size: 1.5em;
+    }
+    
+    #intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 4% 5%;
+        background: rgba(180, 180, 155, 0.637);
+        width: 55%;
+    }
+    
+    .intro-elements {
+        color: rgb(240, 236, 8);
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    
+    #paragraph {
+        margin-bottom: 40px;
+    }
+    
+    #intro-coconuts {
+        color: rgb(119, 83, 7);
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    
+    #monkey {
+        position: fixed;
+    }
+    
+    #scoreboard {
+        position: fixed;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        font-size: 1.6em;
+        width: 20vw;
+        padding: 1% 0;
+        background: rgba(180, 180, 155, 0.637);
+        color: #fff;
+        border-radius: 0 0 10px 10px;
+    }
+    /*Fruits*/
+    
+    .container-banana {
+        margin: 0;
+        display: flex;
+    }
+    
+    .banana {
+        position: fixed;
+    }
+    
+    .container-coconut {
+        margin: 0;
+        display: flex;
+    }
+    
+    .coconut {
+        position: fixed;
+    }
+    /*Alert window*/

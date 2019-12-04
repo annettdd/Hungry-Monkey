@@ -22,7 +22,14 @@ class Banana {
         $banana.style.bottom = `${this.y}px`;
         document.body.appendChild($banana);
     }
+    reset() {
+        this.banana = [];
+        this.y = window.innerHeight + 50;
+        this.x = Math.floor(Math.random() * (window.innerWidth - this.width));
+        this.speed = (Math.random() * 170 + 30);
+    }
 }
+
 
 //------------COCONUT---------------
 class Coconut {
@@ -48,5 +55,10 @@ class Coconut {
         $coconut.style.left = `${this.x}px`;
         $coconut.style.bottom = `${this.y}px`;
         document.body.appendChild($coconut);
+    }
+    reset() {
+        this.y = window.innerHeight + 50;
+        this.x = Math.floor(Math.random() * (window.innerWidth - this.width));
+        this.speed = (Math.random() * 170 + 30);
     }
 }
