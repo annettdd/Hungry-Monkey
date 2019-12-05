@@ -22,6 +22,10 @@ class Monkey {
                     //left screen edge - monkey can not go behind a screen
                     if (!(this.x - this.speed < 0)) this.x -= this.speed;
                     break;
+                case ("ArrowLeft"):
+                    //left screen edge - monkey can not go behind a screen
+                    if (!(this.x - this.speed < 0)) this.x -= this.speed;
+                    break;
             }
         });
     }
