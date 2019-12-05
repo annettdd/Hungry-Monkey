@@ -1,5 +1,6 @@
 class Monkey {
-    constructor() {
+    constructor(source) {
+        this.source = source;
         this.x = (window.innerWidth / 2) - this.width / 2; //middle of the screen
         this.y = 5; //sets monkey a bit higher
         this.initControls();
@@ -27,9 +28,8 @@ class Monkey {
 
     //create monkey (monkey_boy)
     render() {
-
         let $monkey = document.createElement("img");
-        $monkey.setAttribute("src", "./images/monkey-boy.png");
+        $monkey.setAttribute("src", `${this.source}`);
         $monkey.setAttribute("id", "monkey");
         $monkey.style.left = `${this.x}px`;
         $monkey.style.bottom = `${this.y}px`;
@@ -37,6 +37,18 @@ class Monkey {
         $monkey.style.height = `${this.height}px`;
         document.body.appendChild($monkey);
     }
+
+    // chooseAvatarBoy() {
+    //     this.avatarBoy.onclick = function() {
+    //         $monkey.setAttribute("src", "./images/monkey-boy.png");
+    //     }
+    // }
+    // chooseAvatarGirl() {
+    //     this.avatarGirl.onclick = function() {
+    //         $monkey.setAttribute("src", "./images/monkey-girl.png");
+    //     }
+    // }
+
     reset() {
         this.x = (window.innerWidth / 2) - this.width / 2;
         this.y = 5;

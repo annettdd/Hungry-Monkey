@@ -23,24 +23,24 @@
         font-family: 'Happy Monkey', cursive;
         text-align: center;
         color: rgb(240, 236, 8);
-        font-size: 4.5em;
+        font-size: 3.8em;
         text-shadow: 1px 1px black;
         text-transform: uppercase;
-        margin-bottom: 15px;
+        margin: 20px 0 10px 0;
     }
     
     h2 {
         color: rgb(240, 236, 8);
         font-family: 'Happy Monkey', cursive;
-        font-size: 3em;
-        margin: 10px 0 20px 0;
+        font-size: 2.3em;
+        margin: 10px 0 15px 0;
     }
     
     p {
         font-family: 'Happy Monkey', cursive;
         text-align: center;
         color: #fff;
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
     
     #intro {
@@ -48,9 +48,9 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        margin: 3% 5%;
+        margin: 1% 5% 5px 5%;
         background: rgba(180, 180, 155, 0.637);
-        width: 55%;
+        width: 60%;
         border-radius: 10px;
     }
     
@@ -58,6 +58,23 @@
         color: rgb(240, 236, 8);
         text-transform: uppercase;
         font-weight: bold;
+    }
+    
+    #avatar {
+        border: 2px solid rgba(240, 236, 8, 0.349);
+        border-radius: 10px;
+    }
+    
+    #avatar_boy {
+        width: 90px;
+        align-content: center;
+        padding: 3% 10% 0 28%;
+        margin: 0;
+    }
+    
+    #avatar_girl {
+        width: 110px;
+        text-align: center;
     }
     
     #paragraph {
@@ -132,11 +149,10 @@
     #copyright {
         font-size: 0.8em;
         color: #fff;
-        margin: 0 0 10px 0;
+        margin: 0;
     }
     
     #copyright a {
         text-decoration: none;
         color: #fff;
-        margin: 0 0 10px 0;
     }

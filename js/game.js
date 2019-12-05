@@ -10,20 +10,29 @@ class Game {
         this.scoreBoard = new Scoreboard(0, 0);
         this.score = this.scoreBoard.score;
         this.gameOver = null;
-    }
-    controls() {
-        let fixThis = this;
-        document.addEventListener("keydown", function(e) {
-            switch (e.keyCode) {
-                case 13: //Enter
-                    if (!fixThis.gameOver) {
-                        gameBoard.startGame()
-                    } else if (fixThis.gameOver) window.location.reload(true);
-                    break;
-            }
-        });
+        this.avatarBoy = document.getElementById("avatar_boy"); //only in intro for clicking
+        this.avatarGirl = document.getElementById("avatar_girl"); //only in intro for clicking
+
     }
 
+
+    controls() {
+        // let fixThis = this;
+        document.addEventListener("click", (e) => {
+            switch (e.srcElement.alt) {
+                case ("monkey-boy"):
+                    this.monkey = new Monkey("../images/monkey-boy.png");
+                    break;
+                case ("monkey-girl"):
+                    this.monkey = new Monkey("../images/monkey-girl.png");
+            }
+            if (!this.gameOver) {
+                gameBoard.startGame();
+            }
+            this.reloadGame();
+
+        });
+    }
     startGame() {
         var fixThis = this;
         this.soundTrack();
@@ -116,7 +125,21 @@ class Game {
         var sound = new Audio("../sounds/lionKing.mp3");
         sound.play();
     }
+    chooseAvatar() {
+        this.avatarBoy.innerHTML
+    }
+    reloadGame() {
+        let fixThis = this;
+        document.addEventListener("keydown", function(e) {
+            switch (e.keyCode) {
+                case 13: //Enter
+                    if (fixThis.gameOver) window.location.reload(true);
+                    break;
+            }
+        });
+    }
 };
+
 
 //A global helper function
 function collission(element1, element2) {
