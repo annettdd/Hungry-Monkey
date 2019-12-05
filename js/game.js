@@ -10,8 +10,7 @@ class Game {
         this.scoreBoard = new Scoreboard(0, 0);
         this.score = this.scoreBoard.score;
         this.gameOver = null;
-        // this.avatarBoy = document.getElementById("avatar_boy"); //only in intro for clicking
-        // this.avatarGirl = document.getElementById("avatar_girl"); //only in intro for clicking
+
 
     }
 
