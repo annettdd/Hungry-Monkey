@@ -4,7 +4,6 @@ class Game {
         this.gameheight = height;
         this.interval = 0;
         this.controls(); // initialize controls
-        this.soundTrack();
         this.monkey = null;
         this.snake = null;
         this.bananas = [new Banana(), new Banana(), new Banana(), new Banana(), new Banana()];
@@ -25,29 +24,31 @@ class Game {
                     break;
             }
             if (!this.gameOver && this.monkey) {
-                debugger
                 gameBoard.startGame();
                 this.reloadGame();
+                this.soundTrack();
             }
         });
     }
     startGame() {
+
         var fixThis = this;
         setInterval(() => {
             fixThis.render();
             fixThis.checkCollissionBanana();
             fixThis.checkCollissionCoconut();
-            // fixThis.checkCollissionSnake();
-        }, 2)
+            fixThis.checkCollissionSnake();
+        }, 10)
         setInterval(() => {
             if (!this.gameOver) fixThis.addBanana(new Banana());
         }, 2000)
         setInterval(() => {
-                if (!this.gameOver) fixThis.addCoconut(new Coconut());
-            }, 3000)
-            // setInterval(() => {
-            //     if (!this.gameOver) fixThis.addSnake(new Snake());
-            // }, 1000)
+            if (!this.gameOver) fixThis.addCoconut(new Coconut());
+        }, 3000)
+        setInterval(() => {
+            if (!this.gameOver) fixThis.addSnake(new Snake());
+            this.soundSnake();
+        }, 7000)
     }
 
     addMonkey(monkey) {
@@ -57,11 +58,11 @@ class Game {
         this.bananas.push(banana);
     }
     addCoconut(coconut) {
-            this.coconuts.push(coconut);
-        }
-        // addSnake(snake) {
-        //     this.snake = snake;
-        // }
+        this.coconuts.push(coconut);
+    }
+    addSnake(snake) {
+        this.snake = snake;
+    }
     renderBananas() {
         for (let i = 0; i < this.bananas.length; i++) {
             this.bananas[i].render();
@@ -78,7 +79,7 @@ class Game {
             if (this.monkey) this.monkey.render();
             if (this.bananas) this.renderBananas();
             if (this.coconuts) this.renderCoconuts();
-            // if (this.snake) this.snake.render();
+            if (this.snake) this.snake.render();
             if (this.gameOver) this.gameOver.render();
         }
         //Collission banana
@@ -111,26 +112,26 @@ class Game {
             }
             return false
         }
-        //Collission snake
-        // checkCollissionSnake() {
-        //     let snake = this.snake
-        //     let monkey = this.monkey
-        //     if (collission(monkey, snake)) {
-        //         this.soundGameOver();
-        //         this.gameOver = new GameOver(this.scoreBoard.score);
-        //         this.render();
-        //         this.stopGame();
-        //         console.log('Collision with snake!');
+        // Collission snake
+    checkCollissionSnake() {
+        let snake = this.snake
+        let monkey = this.monkey
+        if (collission(monkey, snake)) {
+            this.soundGameOver();
+            this.gameOver = new GameOver(this.scoreBoard.score);
+            this.render();
+            this.stopGame();
+            console.log('Collision with snake!');
 
-    //         return true;
-    //     }
+            return true;
+        }
 
-    //     return false
-    // }
+        return false
+    }
     stopGame() {
             this.scoreBoard = null;
             this.monkey = null;
-            // this.snake = null;
+            this.snake = null;
             this.bananas = [];
             this.coconuts = [];
         }
@@ -141,6 +142,10 @@ class Game {
     }
     soundGameOver() {
         var sound = new Audio("../sounds/error.mp3");
+        sound.play();
+    }
+    soundSnake() {
+        var sound = new Audio("../sounds/snake.mp3");
         sound.play();
     }
     soundTrack() {
