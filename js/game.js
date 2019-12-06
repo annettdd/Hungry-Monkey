@@ -4,19 +4,16 @@ class Game {
         this.gameheight = height;
         this.interval = 0;
         this.controls(); // initialize controls
+        this.soundTrack();
         this.monkey = null;
         this.bananas = [new Banana(), new Banana(), new Banana(), new Banana(), new Banana()];
         this.coconuts = [new Coconut(), new Coconut()];
         this.scoreBoard = new Scoreboard(0, 0);
         this.score = this.scoreBoard.score;
         this.gameOver = null;
-
-
     }
 
-
     controls() {
-        // let fixThis = this;
         document.addEventListener("click", (e) => {
             switch (e.srcElement.alt) {
                 case ("monkey-boy"):
@@ -27,20 +24,18 @@ class Game {
             }
             if (!this.gameOver) {
                 gameBoard.startGame();
+
             }
             this.reloadGame();
-
         });
     }
     startGame() {
         var fixThis = this;
-        this.soundTrack();
         setInterval(() => {
             fixThis.render();
             fixThis.checkCollissionBanana();
             fixThis.checkCollissionCoconut();
         }, 10)
-
         setInterval(() => {
             if (!this.gameOver) fixThis.addBanana(new Banana());
         }, 2000)
@@ -107,11 +102,12 @@ class Game {
         return false
     }
     stopGame() {
-        this.scoreBoard = null;
-        this.monkey = null;
-        this.bananas = [];
-        this.coconuts = [];
-    }
+            this.scoreBoard = null;
+            this.monkey = null;
+            this.bananas = [];
+            this.coconuts = [];
+        }
+        //Sounds
     soundBanana() {
         var sound = new Audio("../sounds/beerLevel.mp3");
         sound.play();
