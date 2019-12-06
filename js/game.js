@@ -6,6 +6,7 @@ class Game {
         this.controls(); // initialize controls
         this.soundTrack();
         this.monkey = null;
+        this.snake = null;
         this.bananas = [new Banana(), new Banana(), new Banana(), new Banana(), new Banana()];
         this.coconuts = [new Coconut(), new Coconut()];
         this.scoreBoard = new Scoreboard(0, 0);
@@ -21,12 +22,13 @@ class Game {
                     break;
                 case ("monkey-girl"):
                     this.monkey = new Monkey("../images/monkey-girl.png");
+                    break;
             }
-            if (!this.gameOver) {
+            if (!this.gameOver && this.monkey) {
+                debugger
                 gameBoard.startGame();
-
+                this.reloadGame();
             }
-            this.reloadGame();
         });
     }
     startGame() {
@@ -35,13 +37,17 @@ class Game {
             fixThis.render();
             fixThis.checkCollissionBanana();
             fixThis.checkCollissionCoconut();
-        }, 10)
+            // fixThis.checkCollissionSnake();
+        }, 2)
         setInterval(() => {
             if (!this.gameOver) fixThis.addBanana(new Banana());
         }, 2000)
         setInterval(() => {
-            if (!this.gameOver) fixThis.addCoconut(new Coconut());
-        }, 3000)
+                if (!this.gameOver) fixThis.addCoconut(new Coconut());
+            }, 3000)
+            // setInterval(() => {
+            //     if (!this.gameOver) fixThis.addSnake(new Snake());
+            // }, 1000)
     }
 
     addMonkey(monkey) {
@@ -51,8 +57,11 @@ class Game {
         this.bananas.push(banana);
     }
     addCoconut(coconut) {
-        this.coconuts.push(coconut);
-    }
+            this.coconuts.push(coconut);
+        }
+        // addSnake(snake) {
+        //     this.snake = snake;
+        // }
     renderBananas() {
         for (let i = 0; i < this.bananas.length; i++) {
             this.bananas[i].render();
@@ -69,6 +78,7 @@ class Game {
             if (this.monkey) this.monkey.render();
             if (this.bananas) this.renderBananas();
             if (this.coconuts) this.renderCoconuts();
+            // if (this.snake) this.snake.render();
             if (this.gameOver) this.gameOver.render();
         }
         //Collission banana
@@ -87,23 +97,40 @@ class Game {
         }
         //Collission coconut
     checkCollissionCoconut() {
-        var coconuts = this.coconuts
-        var monkey = this.monkey
-        for (let i = 0; i < coconuts.length; i++) {
-            if (collission(monkey, coconuts[i])) {
-                coconuts = coconuts.splice(i, 1);
-                this.soundCoconut();
-                this.gameOver = new GameOver(this.scoreBoard.score);
-                this.render();
-                this.stopGame();
-                return true;
+            var coconuts = this.coconuts
+            var monkey = this.monkey
+            for (let i = 0; i < coconuts.length; i++) {
+                if (collission(monkey, coconuts[i])) {
+                    coconuts = coconuts.splice(i, 1);
+                    this.soundGameOver();
+                    this.gameOver = new GameOver(this.scoreBoard.score);
+                    this.render();
+                    this.stopGame();
+                    return true;
+                }
             }
+            return false
         }
-        return false
-    }
+        //Collission snake
+        // checkCollissionSnake() {
+        //     let snake = this.snake
+        //     let monkey = this.monkey
+        //     if (collission(monkey, snake)) {
+        //         this.soundGameOver();
+        //         this.gameOver = new GameOver(this.scoreBoard.score);
+        //         this.render();
+        //         this.stopGame();
+        //         console.log('Collision with snake!');
+
+    //         return true;
+    //     }
+
+    //     return false
+    // }
     stopGame() {
             this.scoreBoard = null;
             this.monkey = null;
+            // this.snake = null;
             this.bananas = [];
             this.coconuts = [];
         }
@@ -112,7 +139,7 @@ class Game {
         var sound = new Audio("../sounds/beerLevel.mp3");
         sound.play();
     }
-    soundCoconut() {
+    soundGameOver() {
         var sound = new Audio("../sounds/error.mp3");
         sound.play();
     }
