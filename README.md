@@ -8,6 +8,8 @@ How many points you can get?
 
 Collect bananas, avoid coconuts and jump over a snake.
 
+Stack:
+
 * HTML
 
 * JavaScript
