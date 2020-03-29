@@ -9,3 +9,7 @@ Game with collision detection.
 * JavaScript
 
 * CSS
+
+You can check the game here: 
+
+https://hungry-monkey.herokuapp.com/
