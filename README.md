@@ -4,6 +4,10 @@ The first project during Ironhack bootcamp.
 
 Game with collision detection. 
 
+How many points you can get?
+
+Collect bananas, avoid coconuts and jump over a snake.
+
 * HTML
 
 * JavaScript
