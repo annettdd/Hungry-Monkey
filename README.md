@@ -1,21 +1,39 @@
+## Table of contents
+* [Setup](#setup)
+* [Name](#name)
+* [General info](#general-info)
+* [Stack](#stack)
+* [Deployed version](#deployed-version)
+* [Visuals](#visuals)
+* [Contact](#contact)
+
+## Setup
+To run the application: open HTML file in browser
+## Name
 Hungry Monkey
+## General info
+    1) The first project during Ironhack bootcamp.
+    2) Game with DOM manipulation, classes and collision detection. 
+    4) Navigate with keyboard arrows.
+    3) Collect bananas, avoid coconuts and jump over a snake.
+    4) The game is not mobile friendly.
+## Stack    
+    HTML, CSS, JavaScript
+## Deployed version
+<a href="https://hungry-monkey.herokuapp.com/"><b>hungry-monkey.herokuapp.com</b></a>
+Attention: The game with music.
+## Visuals
+<div style="display: flex; justify-content: center">
+<img src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_800/v1589967653/HungryMonkey/1_mpwwdv.png" />
+</div>
 
-The first project during Ironhack bootcamp.
+<div style="display: flex; justify-content: center">
+<img src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_800/v1589967695/HungryMonkey/2_qdb4vy.png" />
+</div>
 
-Game with collision detection. 
+<div style="display: flex; justify-content: center">
+<img src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_800/v1589967706/HungryMonkey/3_a2ete3.png" />
+</div>
 
-How many points you can get?
-
-Collect bananas, avoid coconuts and jump over a snake.
-
-Stack:
-
-* HTML
-
-* JavaScript
-
-* CSS
-
-You can check the game here: 
-
-https://hungry-monkey.herokuapp.com/
+## Contact
+    Created by Monika Swidzinska
