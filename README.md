@@ -25,7 +25,8 @@ Hungry Monkey
 Attention: The game with music.
 ## Visuals
 <a href="https://youtu.be/UilWfBuWXoE"><b>Video</b></a>
-Click a video and see how the game works.
+
+Click and see how the game works.
 
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_800/v1589967653/HungryMonkey/1_mpwwdv.png" />
