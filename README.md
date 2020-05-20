@@ -8,7 +8,7 @@
 * [Contact](#contact)
 
 ## Setup
-To run the application: open HTML file in browser
+To run the game: open HTML file in the browser.
 ## Name
 Hungry Monkey
 ## General info
